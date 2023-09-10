@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Petrol Calculator</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+
+<body>
+    <div class="container mt-5">
+        <h1>Petrol Calculator</h1>
+        <hr>
+        <form method="post">
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="avg_consumption">What is your average consumption (liters)?</label>
+                    <input type="number" class="form-control" id="avg_consumption" name="avg_consumption" value="{{ avg_consumption }}">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="people_traveling">How many passengers are you traveling with?</label>
+                    <input type="number" class="form-control" id="people_traveling" name="people_traveling" value="{{ people_traveling }}">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="km_to_go">What is the distance to travel (km)?</label>
+                    <input type="number" class="form-control" id="km_to_go" name="km_to_go" value="{{ km_to_go }}">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="price_liter">What is the cost of a liter of gasoline?</label>
+                    <input type="number" class="form-control" id="price_liter" name="price_liter" value="{{ price_liter }}">
+                </div>
+                <div class="form-group col-md-12 text-center">
+                    <button type="submit" class="btn btn-primary">Calculate Trip Price</button>
+                </div>
+            </div>
+        </form>
+        {% if consumption_calc is defined %}
+        <div>
+            <p style="font-weight: bold; font-size: 30px; color: gray;">
+                <br>
+                The estimated price of your trip is {{ consumption_calc }} leva per person.
+            </p>
+        </div>
+        {% endif %}
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</body>
+
+</html>
